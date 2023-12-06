@@ -118,6 +118,9 @@
             <img src="{{ url_for('static', filename=profile_type + '_portfolio_performance.png') }}" alt="Portfolio Performance Graph">
         </div>
         
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="{{ url_for('results_pdf', profile_type=profile_type) }}" target="_blank" style="display: inline-block; padding: 10px 20px; background: #4CAF50; color: white; border-radius: 5px; text-decoration: none; font-size: 18px;">Download Results as PDF</a>
+        </div> 
     </div>
     
 </div>
