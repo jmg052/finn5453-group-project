@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Investment Results</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Style */
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(to bottom right, #74ebd5, #acb6e5); /* Matching color scheme */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Container Style */
+        .container {
+            width: 95%;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 40px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Typography */
+        h2, p, h3 {
+            padding: 20px 0;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        h3 {
+            color: #555;
+            font-size: 24px;
+        }
+
+        /* Info Section Style */
+        .info-section {
+            background: #e8f9fd; /* Lighter shade for contrast */
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Data and Explanation Styles */
+        .performance-data, .explanation {
+            color: #666;
+            margin-top: 15px;
+            font-size: 18px;
+        }
+
+        /* Tickers List Style */
+        .tickers-list {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        .tickers-list h4 {
+            color: #555;
+            font-size: 22px;
+        }
+
+        /* Graph Image Style */
+        .graph-image img {
+            width: 100%;
+            height: auto;
+            max-width: 700px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 98%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Your Investment Results</h2>
+
+    <div class="info-section">
+        <h3>{{ profile_type.capitalize() }} Portfolio</h3>
+        <p class="performance-data">Past Performance: {{ results['data']['past_performance'] }}</p>
+        <p class="performance-data">Expected Future Performance: {{ results['data']['expected_future_performance'] }}</p>
+        <p class="performance-data">Portfolio Beta: {{ results['data']['portfolio_beta'] | round(2) }}</p>
+        </p>
+
+        <div class="explanation">
+            <p>{{ results['explanation']['past_performance'] }}</p>
+            <p>{{ results['explanation']['expected_future_performance'] }}</p>
+            <p>{{ results['explanation']['portfolio_beta'] }}</p>
+        </div>
+
+        <h3>Portfolio Composition</h3>
+        <div class="tickers-list">
+            <h4>{{ profile_type.capitalize() }} Portfolio Tickers</h4>
+            <p>{{ results['tickers'] | join(', ') }}</p>
+        </div>
+
+        <div class="graph-image">
+            <img src="{{ url_for('static', filename=profile_type + '_portfolio_performance.png') }}" alt="Portfolio Performance Graph">
+        </div>
+        
+    </div>
+    
+</div>
+
+</body>
+</html>

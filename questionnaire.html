@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Investment Profile Questionnaire</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Style */
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: linear-gradient(to bottom right, #74ebd5, #acb6e5);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            font-size: 16px;
+        }
+        
+        /* Form Style */
+        form {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        /* Typography */
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 28px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 10px;
+            color: #555;
+            font-size: 18px;
+        }
+
+        /* Input and Select Styles */
+        select, input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        /* Submit Button Style */
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Fieldset Style */
+        fieldset {
+            border: 1px solid #ccc;
+            margin: 20px 0;
+            padding: 15px;
+        }
+
+        /* Legend Style */
+        legend {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            form {
+                width: 95%;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<form action="/" method="post">
+    <h2>Group Investment Profile Questionnaire</h2>
+
+    <!-- User 1 Input Section -->
+    <fieldset>
+        <legend>User 1</legend>
+        <label for="investment_horizon1">Investment Horizon:</label>
+        <select name="investment_horizon1" id="investment_horizon1">
+            <option value="low">Short-Term - Under 10 Years</option>
+            <option value="medium" selected>Medium-Term - 10-20 Years</option>
+            <option value="high">Long-Term Over 20 Years</option>
+        </select>
+
+        <label for="risk_profile1">Risk Profile:</label>
+        <select name="risk_profile1" id="risk_profile1">
+            <option value="low">Lower Return/Lower Risk</option>
+            <option value="medium" selected>Avg. Return/Avg. Risk</option>
+            <option value="high">Higher Return - Higher Risk</option>
+        </select>
+
+        <label for="liquidity_needs1">Liquidity Needs:</label>
+        <select name="liquidity_needs1" id="liquidity_needs1">
+            <option value="low">High</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">Low</option>
+        </select>
+
+        <label for="income_level1">Income Level/Stability:</label>
+        <select name="income_level1" id="income_level1">
+            <option value="low">Below Average Income Level/Stability</option>
+            <option value="medium" selected>Average Income Level/Stability</option>
+            <option value="high">Above Average Income Level/Stability</option>
+        </select>
+
+        <label for="market_confidence1">Confidence In Market Conditions:</label>
+        <select name="market_confidence1" id="market_confidence1">
+            <option value="low">Bearish</option>
+            <option value="medium" selected>Uncertain</option>
+            <option value="high">Bullish</option>
+        </select>
+    </fieldset>
+
+    <!-- User 2 Input Section -->
+    <fieldset>
+        <legend>User 2</legend>
+        <!-- Replicate the form fields for User 2 -->
+        <label for="investment_horizon2">Investment Horizon:</label>
+        <select name="investment_horizon2" id="investment_horizon2">
+            <option value="low">Short-Term - Under 10 Years</option>
+            <option value="medium" selected>Medium-Term - 10-20 Years</option>
+            <option value="high">Long-Term Over 20 Years</option>
+        </select>
+
+        <label for="risk_profile2">Risk Profile:</label>
+        <select name="risk_profile2" id="risk_profile2">
+            <option value="low">Lower Return/Lower Risk</option>
+            <option value="medium" selected>Avg. Return/Avg. Risk</option>
+            <option value="high">Higher Return - Higher Risk</option>
+        </select>
+
+        <label for="liquidity_needs2">Liquidity Needs:</label>
+        <select name="liquidity_needs2" id="liquidity_needs2">
+            <option value="low">High</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">Low</option>
+        </select>
+
+        <label for="income_level2">Income Level/Stability:</label>
+        <select name="income_level2" id="income_level2">
+            <option value="low">Below Average Income Level/Stability</option>
+            <option value="medium" selected>Average Income Level/Stability</option>
+            <option value="high">Above Average Income Level/Stability</option>
+        </select>
+
+        <label for="market_confidence2">Confidence In Market Conditions:</label>
+        <select name="market_confidence2" id="market_confidence2">
+            <option value="low">Bearish</option>
+            <option value="medium" selected>Uncertain</option>
+            <option value="high">Bullish</option>
+        </select>
+    </fieldset>
+
+    <!-- User 3 Input Section -->
+    <fieldset>
+        <legend>User 3</legend>
+        <!-- Replicate the form fields for User 3 -->
+        <label for="investment_horizon3">Investment Horizon:</label>
+        <select name="investment_horizon3" id="investment_horizon3">
+            <option value="low">Short-Term - Under 10 Years</option>
+            <option value="medium" selected>Medium-Term - 10-20 Years</option>
+            <option value="high">Long-Term Over 20 Years</option>
+        </select>
+
+        <label for="risk_profile3">Risk Profile:</label>
+        <select name="risk_profile3" id="risk_profile3">
+            <option value="low">Lower Return/Lower Risk</option>
+            <option value="medium" selected>Avg. Return/Avg. Risk</option>
+            <option value="high">Higher Return - Higher Risk</option>
+        </select>
+
+        <label for="liquidity_needs3">Liquidity Needs:</label>
+        <select name="liquidity_needs3" id="liquidity_needs3">
+            <option value="low">High</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">Low</option>
+        </select>
+
+        <label for="income_level3">Income Level/Stability:</label>
+        <select name="income_level3" id="income_level3">
+            <option value="low">Below Average Income Level/Stability</option>
+            <option value="medium" selected>Average Income Level/Stability</option>
+            <option value="high">Above Average Income Level/Stability</option>
+        </select>
+
+        <label for="market_confidence3">Confidence In Market Conditions:</label>
+        <select name="market_confidence3" id="market_confidence3">
+            <option value="low">Bearish</option>
+            <option value="medium" selected>Uncertain</option>
+            <option value="high">Bullish</option>
+        </select>
+    </fieldset>
+
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

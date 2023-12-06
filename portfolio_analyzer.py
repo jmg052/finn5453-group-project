@@ -107,4 +107,4 @@ def calculate_portfolio_performance(profile_type):
     return portfolio_analysis(portfolio, profile_type.capitalize())
 
 # Example Usage
-result = calculate_portfolio_performance('conservative')
+result = calculate_portfolio_performance('moderate')
