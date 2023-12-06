@@ -1,6 +1,6 @@
-# %%
-from flask import Flask, render_template, request
 import portfolio_analyzer  # Ensure this import is correctly set up
+from flask_weasyprint import HTML, render_pdf
+from flask import Flask, render_template, request, session, redirect, url_for
 
 app = Flask(__name__, template_folder='templates')
 
@@ -28,22 +28,35 @@ def calculate_investor_profile(data):
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        # Collect data for all users
         form_data = {}
         for field in ['investment_horizon', 'risk_profile', 'liquidity_needs', 'income_level', 'market_confidence']:
-            for i in range(1, 4):  # User 1, 2, 3
+            for i in range(1, 4):
                 form_data[f'{field}{i}'] = request.form.get(f'{field}{i}')
 
         profile_type = calculate_investor_profile(form_data)
-        results = portfolio_analyzer.calculate_portfolio_performance(profile_type)
-
-        # Pass the profile type and the tickers to the template
-        return render_template('results.html', profile_type=profile_type, results=results, 
-                               growth=portfolio_analyzer.growth, 
-                               middle=portfolio_analyzer.middle, 
-                               stable=portfolio_analyzer.stable)
+        # Redirect to the results page with the profile type as a query parameter
+        return redirect(url_for('view_results', profile_type=profile_type))
 
     return render_template('questionnaire.html')
 
+@app.route('/results')
+def view_results():
+    profile_type = request.args.get('profile_type')
+    if not profile_type:
+        return redirect(url_for('index'))
+
+    results = portfolio_analyzer.calculate_portfolio_performance(profile_type)
+    return render_template('results.html', profile_type=profile_type, results=results)
+
+@app.route('/results/pdf')
+def results_pdf():
+    profile_type = request.args.get('profile_type')
+    if not profile_type:
+        return redirect(url_for('index'))
+
+    results = portfolio_analyzer.calculate_portfolio_performance(profile_type)
+    html = render_template('results.html', profile_type=profile_type, results=results)
+    return render_pdf(HTML(string=html))
+
 if __name__ == '__main__':
-    app.run(debug=True, threaded=True)
+    app.run(debug=False, threaded=True)
